@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [serverError, setServerError] = useState('');
   const navigate = useNavigate();
 
   const validateInputs = () => {
     let isValid = true;
     setEmailError('');
     setPasswordError('');
+    setServerError('');
 
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
       setEmailError('Please enter a valid email address.');
@@ -26,100 +29,65 @@ const Login = () => {
     return isValid;
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     if (validateInputs()) {
-      if (email === 'test@example.com' && password === 'password') {
-        alert('Login successful!');
-        navigate('/home');
-      } else {
-        alert('Invalid credentials');
+      try {
+        const response = await fetch('http://localhost:4327/api/users/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert('Login successful!');
+          navigate('/home');
+        } else {
+          setServerError(data.message || 'Invalid credentials');
+        }
+      } catch (error) {
+        setServerError('An error occurred while logging in. Please try again.');
+        console.error('Login error:', error);
       }
     }
   };
 
   return (
-    <div style={styles.container}>
-      <form onSubmit={handleLogin} style={styles.form}>
-        <h2 style={styles.heading}>Login</h2>
-        <div style={styles.inputContainer}>
-          <label style={styles.label}>Email:</label>
+    <div className="login-container">
+      <form onSubmit={handleLogin} className="login-form">
+        <h2 className="login-heading">Login</h2>
+        <div className="input-container">
+          <label className="input-label">Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={styles.input}
+            className="input-field"
           />
-          {emailError && <span style={styles.error}>{emailError}</span>}
+          {emailError && <span className="error-message">{emailError}</span>}
         </div>
-        <div style={styles.inputContainer}>
-          <label style={styles.label}>Password:</label>
+        <div className="input-container">
+          <label className="input-label">Password:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={styles.input}
+            className="input-field"
           />
-          {passwordError && <span style={styles.error}>{passwordError}</span>}
+          {passwordError && <span className="error-message">{passwordError}</span>}
         </div>
-        <button type="submit" style={styles.button}>
+        {serverError && <span className="server-error">{serverError}</span>}
+        <button type="submit" className="submit-button">
           Login
         </button>
       </form>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    backgroundColor: '#f9f9f9',
-    fontFamily: 'Arial, sans-serif',
-  },
-  form: {
-    width: '300px',
-    padding: '20px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    borderRadius: '8px',
-    backgroundColor: '#fff',
-  },
-  heading: {
-    textAlign: 'center',
-    color: '#333',
-    marginBottom: '20px',
-  },
-  inputContainer: {
-    marginBottom: '15px',
-  },
-  label: {
-    display: 'block',
-    marginBottom: '5px',
-    color: '#555',
-  },
-  input: {
-    width: '100%',
-    padding: '10px',
-    border: '1px solid #ddd',
-    borderRadius: '4px',
-  },
-  error: {
-    color: 'red',
-    fontSize: '0.9rem',
-    marginTop: '5px',
-  },
-  button: {
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
 };
 
 export default Login;

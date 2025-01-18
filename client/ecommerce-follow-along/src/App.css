@@ -1,0 +1,83 @@
+/* App.css */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9fafb;
+    font-family: Arial, sans-serif;
+  }
+  
+  .login-form {
+    width: 24rem; /* Equivalent to w-96 in Tailwind */
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  .login-heading {
+    text-align: center;
+    font-size: 1.5rem; /* Equivalent to text-2xl in Tailwind */
+    font-weight: 600;
+    color: #4a4a4a;
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-container {
+    margin-bottom: 1rem;
+  }
+  
+  .input-label {
+    display: block;
+    font-size: 0.875rem; /* Equivalent to text-sm in Tailwind */
+    font-weight: 500;
+    color: #4a4a4a;
+    margin-bottom: 0.25rem;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .input-field:focus {
+    border-color: #3b82f6; /* Equivalent to focus:ring-2 focus:ring-blue-500 */
+  }
+  
+  .error-message {
+    color: #f87171; /* Equivalent to text-red-500 */
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  .server-error {
+    color: #f87171; /* Equivalent to text-red-500 */
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #3b82f6; /* Equivalent to bg-blue-500 */
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #2563eb; /* Equivalent to hover:bg-blue-600 */
+  }
+  
+  .submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* Equivalent to focus:ring-2 focus:ring-blue-500 */
+  }
+  

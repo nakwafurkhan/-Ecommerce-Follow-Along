@@ -1,6 +1,3 @@
-
----
-
 # Ecommerce Follow-Along
 
 Welcome to the Ecommerce Follow-Along Project! This project is part of a mentor-led series designed to provide hands-on experience in building a full-fledged e-commerce application using the MERN stack (MongoDB, Express.js, React.js, Node.js).
@@ -56,7 +53,7 @@ This project focuses on building a scalable and secure e-commerce application. Y
    - Restart the server automatically during CRUD development.
 
 9. **Dotenv**  
-   **Purpose**: Load environment variables from a .env file.  
+   **Purpose**: Load environment variables from a `.env` file.  
    **Usage**:  
    - Manage sensitive data like database credentials.
 
@@ -95,12 +92,17 @@ This project focuses on building a scalable and secure e-commerce application. Y
 - **Login Page**: A user login page has been implemented using **React Router DOM** for navigation and **useState** for managing state.
 - **Home Page**: A dynamic home page has been added with a simple greeting and a "Login" button to redirect to the login page.
 
+### New Backend Features:
+- **User Creation**: A new API endpoint (`/create`) has been added to create new users. It accepts user data in the request body, stores it in MongoDB, and returns a success message.
+- **File Upload**: A file upload feature has been added using **Multer**. Files can be uploaded via the `/upload` endpoint, which saves the file to the server's `uploads` directory.
+
 ### Next Steps:
 - Set up the development environment for the MERN stack.
 - Implement basic CRUD operations for users, products, and orders.
 - Integrate backend CRUD logic with the React frontend.
 
-Stay tuned and get ready to master CRUD operations while building your e-commerce application! 🚀
+## Running the Application
 
----
-
+1. **Clone the repository**:  
+   ```bash
+   git clone https://github.com/your-username/ecommerce-follow-along.git
