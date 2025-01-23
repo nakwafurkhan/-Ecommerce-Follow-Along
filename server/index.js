@@ -40,6 +40,9 @@ app.post("/create",async(req,res)=> {
 })
 const multer = require('multer');
 
+// const multer  = require('multer')
+// const upload = multer({ dest: './uploads' })
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null,'uploads/');
@@ -48,7 +51,13 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     // const fileExtension = file.mimetype.split('/')[1];
     // const filename = `${Date.now()}-${Math.round(Math.random() * 1E9)}.${fileExtension}`;
-    cb(null, file.fieldname+'-'+Date.now+'-'+file.originalname);
+
+
+    // cb(null, file.fieldname+'-'+Date.now+'-'+file.originalname);
+    
+
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, file.fieldname + '-' + uniqueSuffix)
   }
 });
 

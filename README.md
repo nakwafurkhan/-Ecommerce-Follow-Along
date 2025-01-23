@@ -25,10 +25,10 @@ This project focuses on building a scalable and secure e-commerce application. Y
 4. **Express.js**  
    **Purpose**: Backend framework for building REST APIs.  
    **Usage**:  
-   - Create routes for CRUD operations such as:
-     - Create: Add new users, products, or orders.
-     - Read: Fetch data (e.g., product list, order details).
-     - Update: Modify existing user or product data.
+   - Create routes for CRUD operations such as:  
+     - Create: Add new users, products, or orders.  
+     - Read: Fetch data (e.g., product list, order details).  
+     - Update: Modify existing user or product data.  
      - Delete: Remove users, products, or orders from the database.
 
 5. **React.js**  
@@ -58,9 +58,9 @@ This project focuses on building a scalable and secure e-commerce application. Y
    - Manage sensitive data like database credentials.
 
 10. **Git & GitHub**  
-   **Purpose**: Version control and repository hosting.  
-   **Usage**:  
-   - Track changes to CRUD logic and collaborate.
+    **Purpose**: Version control and repository hosting.  
+    **Usage**:  
+    - Track changes to CRUD logic and collaborate.
 
 ## CRUD Operations Overview
 1. **Users**
@@ -87,22 +87,60 @@ This project focuses on building a scalable and secure e-commerce application. Y
 - Learn to set up a new project repository.
 - Explore the functionalities of an e-commerce application, including CRUD operations.
 
+## Milestone 4: User Model, Controller, and File Uploads
+By the end of this milestone, you will:
+
+1. **Create a User Model**: Design the blueprint for storing user data in the database. This includes defining schemas in MongoDB that outline what information (e.g., name, email, password) will be stored for each user.
+
+2. **Create a User Controller**: Manage user-related operations such as adding new users, retrieving user details, and responding to frontend requests.
+
+3. **Enable and Configure Multer**: Set up file uploads to handle user-uploaded files, such as profile pictures, and store them in the backend. Multer simplifies the process of managing and organizing uploaded files.
+
+4. **Update the README File**: Document the progress and changes made during this milestone.
+
+### What’s a Model?
+A model is like a detailed map or plan for the data structure. When creating a User Model:
+- You define how user data (e.g., name, email, password) is stored in the database.
+- A schema acts as a blueprint to ensure consistency in the data format.
+
+### What’s a Controller?
+A controller is responsible for managing the interactions between the app and the database. For example:
+- It handles requests like user registration or login.
+- It processes the incoming data and sends appropriate responses.
+
+### File Uploads with Multer
+File uploads enable users to upload images or documents. Multer:
+- Stores these files on the server.
+- Acts as a virtual file cabinet to manage uploads efficiently.
+
 ## Latest Update
 ### New Features:
 - **Login Page**: A user login page has been implemented using **React Router DOM** for navigation and **useState** for managing state.
-- **Home Page**: A dynamic home page has been added with a simple greeting and a "Login" button to redirect to the login page.
+- **Home Page**: A dynamic home page with a greeting and a "Login" button that redirects to the login page.
+- **User Creation API**: A new endpoint (`/create`) to add users to the database.
+- **File Uploads**: Added file upload functionality using **Multer** for managing user-uploaded files.
 
-### New Backend Features:
-- **User Creation**: A new API endpoint (`/create`) has been added to create new users. It accepts user data in the request body, stores it in MongoDB, and returns a success message.
-- **File Upload**: A file upload feature has been added using **Multer**. Files can be uploaded via the `/upload` endpoint, which saves the file to the server's `uploads` directory.
-
-### Next Steps:
-- Set up the development environment for the MERN stack.
-- Implement basic CRUD operations for users, products, and orders.
-- Integrate backend CRUD logic with the React frontend.
+## Next Steps
+1. Set up the development environment for the MERN stack.
+2. Implement basic CRUD operations for users, products, and orders.
+3. Integrate backend CRUD logic with the React frontend.
 
 ## Running the Application
-
 1. **Clone the repository**:  
    ```bash
    git clone https://github.com/your-username/ecommerce-follow-along.git
+   ```
+2. **Install dependencies**:  
+   ```bash
+   cd ecommerce-follow-along
+   npm install
+   ```
+3. **Run the backend server**:  
+   ```bash
+   npm run server
+   ```
+4. **Start the frontend**:  
+   ```bash
+   npm start
+   ```
+
