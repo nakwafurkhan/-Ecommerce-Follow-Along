@@ -1,6 +1,6 @@
 # Ecommerce-Follow-Along
      
-     A hands-on project demonstrating the power of the MERN stack by creating a functional e-commerce platform.
+     **A hands-on project demonstrating the power of the MERN stack by creating a functional e-commerce platform.**
 
 ## E-Commerce Application using MERN Stack
 
