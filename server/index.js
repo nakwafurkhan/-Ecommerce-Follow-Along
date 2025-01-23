@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const User = require('./models/users');
 const upload = require('./middlewares/multer.js'); 
+const bcrypt = require('bcrypt');
 // const authRoutes = require('./routes/userRoutes')./multer;
 
 dotenv.config();
@@ -45,6 +46,28 @@ app.post("/upload", upload.single("myFile"), (req, res) => {
   } catch (error) {
     console.log(error);
     res.send({ "err": error });
+  }
+});
+
+// Login endpoint and validation
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.send({ message: "User not found" });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.send({ message: "wrong password" });
+    }
+
+    res.send({ message: "Login successful" });
+  } catch (error) {
+    console.error('Error during login:', error.message);
+    res.send({ error: "Internal server error" });
   }
 });
 
