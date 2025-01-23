@@ -114,10 +114,10 @@ const Signup = () => {
             <div className="submit-container"  >
            
                 <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => { setAction("Sign Up"); }}>
-                    <div className={action === "Sign Up" ? "submit" : "submit gray"} onClick={handleSubmit}>Sign Up</div>
+                    <div className='button' onClick={handleSubmit}>Sign Up</div>
                 </div>
                 <div className={action === "Sign Up" ? "submit gray" : "submit"} onClick={() => { setAction("Login"); }}>
-                    <div className={action === "Sign Up" ? "submit" : "submit gray"} onClick={handleSubmit}>Login</div>
+                    <div className='button' onClick={handleSubmit}>Login</div>
                 </div>
             </div>
         </div>
