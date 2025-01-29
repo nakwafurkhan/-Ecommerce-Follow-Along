@@ -69,3 +69,30 @@ Welcome to the E-Commerce Application project! 🚀 This project involves buildi
 
 * Created a reusable Card Component with props for product details.
 * Designed the Homepage layout using a grid or flexbox to display multiple product cards.
+
+## Milestone 9: Product Form Creation
+
+### Create Product Form:
+- Make a form for adding product details like name, description, price, and images.
+
+### Image Uploads:
+- Allow users to upload multiple images for the product.
+
+### Form Validation:
+- Check that the form fields are filled correctly (e.g., price is a number, name is not empty).
+
+---
+
+## Milestone 10: Product Schema & Endpoint
+
+### Product Schema:
+- Define product details (name, description, price, image URL) using Mongoose with validation.
+
+### Endpoint Creation:
+- Create a POST endpoint to save product data to MongoDB.
+
+### Why Validation?
+- Ensures only valid data is saved, keeping the database accurate.
+
+
+
