@@ -69,3 +69,4 @@ Welcome to the E-Commerce Application project! 🚀 This project involves buildi
 
 * Created a reusable Card Component with props for product details.
 * Designed the Homepage layout using a grid or flexbox to display multiple product cards.
+
