@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const User = require('./models/users');
 const upload = require('./middlewares/multer.js'); 
 const bcrypt = require('bcrypt');
+const {productModel} = require('./models/product.js');
+const {productRouter} = require('./routes/productRoutes.js');
 // const authRoutes = require('./routes/userRoutes')./multer;
 
 dotenv.config();
@@ -38,16 +40,16 @@ app.post("/create", async (req, res) => {
   }
 });
 
-// Upload file route
-app.post("/upload", upload.single("myFile"), (req, res) => {
-  try {
-    console.log(req.file);  // Check the file uploaded
-    res.send({ 'message': "Successfully uploaded file" });
-  } catch (error) {
-    console.log(error);
-    res.send({ "err": error });
-  }
-});
+// // Upload file route
+// app.post("/upload", upload.single("myFile"), (req, res) => {
+//   try {
+//     console.log(req.file);  // Check the file uploaded
+//     res.send({ 'message': "Successfully uploaded file" });
+//   } catch (error) {
+//     console.log(error);
+//     res.send({ "err": error });
+//   }
+// });
 
 // Login endpoint and validation
 app.post('/login', async (req, res) => {
@@ -70,6 +72,8 @@ app.post('/login', async (req, res) => {
     res.send({ error: "Internal server error" });
   }
 });
+
+app.use("/product",productRouter)
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
