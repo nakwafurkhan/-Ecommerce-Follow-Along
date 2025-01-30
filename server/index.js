@@ -75,6 +75,17 @@ app.post('/login', async (req, res) => {
 
 app.use("/product",productRouter)
 
+// Endpoint to get all products
+app.get('/products', async (req, res) => {
+  try {
+    const products = await productModel.find();
+    res.send(products);
+  } catch (error) {
+    console.error('Error fetching products:', error.message);
+    res.send({ error: "Internal server error" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
