@@ -1,6 +1,6 @@
 # Ecommerce-Follow-Along
      
-     https://github.com/nakwafurkhan/-Ecommerce-Follow-Along.git
+     A hands-on project demonstrating the power of the MERN stack by creating a functional e-commerce platform.
 
 ## E-Commerce Application using MERN Stack
 
@@ -70,41 +70,40 @@ Welcome to the E-Commerce Application project! 🚀 This project involves buildi
 * Created a reusable Card Component with props for product details.
 * Designed the Homepage layout using a grid or flexbox to display multiple product cards.
 
-### Milestone 9: Product Form Creation
+## Milestone 9: Product Input Form
 
-1. *Create Product Form:*
-   - Make a form for adding product details like name, description, price, and images.
+*   **Product Details Form:** Developed a comprehensive form to collect all necessary product information.
+*   **Multiple Image Upload:** Implemented functionality for uploading multiple images for each product.
 
-2. *Image Uploads:*
-   - Allow users to upload multiple images for the product.
 
-3. *Form Validation:*
-   - Check that the form fields are filled correctly (e.g., price is a number, name is not empty).
+# Milestone 10: Product Schema & Endpoint
 
-### Milestone 10: Product Schema & Endpoint
+Create a Mongoose product schema with validation and a POST endpoint to store product details in MongoDB.
 
-1. *Product Schema:*
-   - Define product details (name, description, price, image URL) using Mongoose with validation.
+**Goals:**
 
-2. *Endpoint Creation:*
-   - Create a POST endpoint to save product data to MongoDB.
+* Product schema creation
+* Endpoint for product data (POST)
+* Data validation
 
-3. *Why Validation?*
-   - Ensures only valid data is saved, keeping the database accurate.
 
-### Milestone 11 Endpoint for Product
+## Milestone 11: Data Fetching and Display
 
-1. *Overview*
-    - This endpoint retrieves all products from the database.
+This milestone focuses on fetching product data from the backend and dynamically displaying it on the frontend using product cards.
 
-2. *Endpoint*
-    - `GET /products`
+**Key Objectives:**
 
-3. *Description*
-    - This endpoint is used to fetch all products stored in the database. It performs an asynchronous operation to retrieve the data and sends
-      the list of products as a response. If an error occurs during the fetching process, it logs the error and sends an internal server error message.
+* Implement a backend endpoint to retrieve all product data from MongoDB and send it to the frontend.
+* Create a frontend function to fetch the product data from the endpoint.
+* Dynamically render the retrieved product data using the existing product card component.
 
-4. *Response*
-    - **Success (200)**: Returns an array of product objects.
-    - **Error (500)**: Returns an error message indicating an internal server error.
+## Milestone 12: My Products Page
+
+This milestone focuses on creating a "My Products" page that displays only the products added by the logged-in user (identified by their email).
+
+**Key Objectives:**
+
+* Implement a backend endpoint that retrieves products from MongoDB, filtering by the user's email address.
+* Create a frontend function to fetch the filtered product data from the endpoint.
+* Dynamically render the retrieved product data on the "My Products" page using the existing product card component.
 

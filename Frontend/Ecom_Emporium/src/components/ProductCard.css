@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+.cart {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.08);
+    border: 1px solid rgba(184, 134, 11, 0.1);
+}
+
+.cart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.15);
+}
+
+.cart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #B8860B, #DAA520);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cart:hover::before {
+    opacity: 1;
+}
+
+.cart img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(184, 134, 11, 0.1);
+}
+
+.cart h3 {
+    font-family: 'Cinzel', serif;
+    color: #2C1810;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.cart h4 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #B8860B;
+    font-size: 1.1rem;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.cart p {
+    font-family: 'Cormorant Garamond', serif;
+    color: #5D4037;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 8px 0;
+    flex-grow: 1;
+}
+
+/* Animation for card appearance */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cart {
+    animation: cardFadeIn 0.5s ease forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cart {
+        padding: 15px;
+    }
+
+    .cart img {
+        height: 180px;
+    }
+
+    .cart h3 {
+        font-size: 1.1rem;
+    }
+
+    .cart h4 {
+        font-size: 1rem;
+    }
+
+    .cart p {
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 90px;
+   padding: 0 5%;
+   background: #F9F6EE;
+   border-bottom: 2px solid #B8860B;
+   position: relative;
+   border-radius: 0 0 30px 30px;
+}
+
+/* Decorative corner patterns */
+.navbar::before,
+.navbar::after {
+   content: "❦";
+   position: absolute;
+   font-size: 24px;
+   color: #B8860B;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+.navbar::before {
+   left: 20px;
+}
+
+.navbar::after {
+   right: 20px;
+}
+
+.navbar h1 {
+   font-family: 'Cinzel', serif;
+   color: #2C1810;
+   font-size: 2.2rem;
+   font-weight: 700;
+   letter-spacing: 2px;
+   position: relative;
+   text-transform: uppercase;
+}
+
+/* Decorative underline for logo */
+.navbar h1::after {
+   content: "";
+   position: absolute;
+   bottom: -8px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 80%;
+   height: 2px;
+   background: linear-gradient(90deg, transparent, #B8860B, transparent);
+}
+
+.nav-buttons {
+   display: flex;
+   gap: 25px;
+}
+
+.nav-buttons a {
+   text-decoration: none;
+}
+
+button {
+   font-family: 'Cormorant Garamond', serif;
+   padding: 12px 28px;
+   font-size: 1.1rem;
+   color: #2C1810;
+   background: transparent;
+   border: 2px solid #B8860B;
+   cursor: pointer;
+   position: relative;
+   overflow: hidden;
+   transition: all 0.4s ease;
+   font-weight: 600;
+   letter-spacing: 1px;
+   border-radius: 20px;
+}
+
+/* Ornate button borders */
+button::before,
+button::after {
+   content: "";
+   position: absolute;
+   width: 15px;
+   height: 15px;
+   border: 2px solid #B8860B;
+   transition: all 0.4s ease;
+   border-radius: 50%;
+}
+
+button::before {
+   top: -2px;
+   left: -2px;
+   border-right: 0;
+   border-bottom: 0;
+}
+
+button::after {
+   bottom: -2px;
+   right: -2px;
+   border-left: 0;
+   border-top: 0;
+}
+
+button:hover {
+   color: #F9F6EE;
+   background: #B8860B;
+   transform: translateY(-3px);
+   box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+}
+
+button:hover::before,
+button:hover::after {
+   width: 20px;
+   height: 20px;
+   opacity: 0;
+}
+
+/* Add elegant hover effect */
+.navbar h1:hover {
+   text-shadow: 2px 2px 4px rgba(44, 24, 16, 0.1);
+}
+
+/* Optional: Add a subtle shadow to the navbar */
+.navbar {
+   box-shadow: 0 4px 20px rgba(184, 134, 11, 0.1);
+}
+
+@media (max-width: 768px) {
+   .navbar {
+       height: 70px;
+       padding: 0 15px;
+       border-radius: 0 0 20px 20px;
+   }
+   
+   .navbar h1 {
+       font-size: 1.6rem;
+   }
+   
+   button {
+       padding: 8px 16px;
+       font-size: 0.9rem;
+   }
+   
+   .navbar::before,
+   .navbar::after {
+       display: none;
+   }
+}
