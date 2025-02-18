@@ -1,156 +1,80 @@
-import React, { useState } from 'react';
-import "./SignUp.css";
+import React from 'react'
+import { useState } from 'react';
+import "./SignUp.css"
 
 const SignUp = () => {
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        password: ""
+
+    const [form,setForm]=useState({
+        name:"",
+        password:"",
+        email:""
     });
 
-    const [errors, setErrors] = useState({
-        name: "",
-        email: "",
-        password: ""
-    });
-
-    const validateForm = () => {
-        let isValid = true;
-        const newErrors = {
-            name: "",
-            email: "",
-            password: ""
-        };
-
-        // Name validation
-        if (!form.name.trim()) {
-            newErrors.name = "Name is required";
-            isValid = false;
-        }
-
-        // Email validation
-        if (!form.email) {
-            newErrors.email = "Email is required";
-            isValid = false;
-        } else if (!form.email.includes("@")) {
-            newErrors.email = "Please enter a valid email address";
-            isValid = false;
-        }
-
-        // Password validation
-        if (!form.password) {
-            newErrors.password = "Password is required";
-            isValid = false;
-        } else if (form.password.length < 8 || form.password.length > 16) {
-            newErrors.password = "Password must be between 8-16 characters";
-            isValid = false;
-        }
-
-        setErrors(newErrors);
-        return isValid;
+    const handleNameChange=(e)=>{
+        setForm({
+            ...form,name:e.target.value
+        })
     };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setForm(prevForm => ({
-            ...prevForm,
-            [name]: value
-        }));
-        
-        // Clear error when user starts typing
-        if (errors[name]) {
-            setErrors(prev => ({
-                ...prev,
-                [name]: ""
-            }));
-        }
+    const handleEmailChange=(e)=>{
+        setForm({
+            ...form,email:e.target.value
+        }) 
     };
 
-    const handleSubmit = async (e) => {
+    const handlePasswordChange=(e)=>{
+        setForm({
+            ...form,password:e.target.value
+        }) 
+    }
+
+    const handleSubmit=(e)=>{
         e.preventDefault();
 
-        if (!validateForm()) {
-            return;
+        if(!form.email.includes("@")){
+            alert("Please Enter a Valid Email Address")
         }
 
-        try {
-            const response = await fetch("http://localhost:8080/signup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(form)
-            });
+        if(form.password.length<8 || form.password.length>16){
+            alert("Enter a password within a range of 8-16 characters")
+        };
 
-            const data = await response.json();
-            
-            if (response.ok) {
-                alert("Registration successful!");
-                setForm({
-                    name: "",
-                    email: "",
-                    password: ""
-                });
-            } else {
-                alert(data.message || "Registration failed. Please try again.");
-            }
-        } catch (err) {
-            console.error(err);
-            alert("An error occurred. Please try again later.");
+        let payload={
+            name:form.name,
+            email:form.email,
+            password:form.password
         }
-    };
 
-    return (
-        <div className="container">
-            <form onSubmit={handleSubmit}>
-                <h1>Registration</h1>
-                
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        className={errors.name ? "error" : ""}
-                        placeholder="Enter your name"
-                    />
-                    {errors.name && <span className="error-message">{errors.name}</span>}
-                </div>
+        fetch("http://localhost:8080/signup",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(payload)
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            console.log(res)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    
+        // alert("Hurray! Sign-Up Successfully");
+    }
 
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        className={errors.email ? "error" : ""}
-                        placeholder="Enter your email"
-                    />
-                    {errors.email && <span className="error-message">{errors.email}</span>}
-                </div>
 
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={form.password}
-                        onChange={handleChange}
-                        className={errors.password ? "error" : ""}
-                        placeholder="Enter your password"
-                    />
-                    {errors.password && <span className="error-message">{errors.password}</span>}
-                </div>
+  return (
+    <>
+    <form action="" onSubmit={handleSubmit}>
+        <h1>Registration</h1>
+        <label htmlFor="">Name</label>
+        <input type="text" value={form.name} onChange={handleNameChange}/>
+        <label htmlFor="">Email</label>
+        <input type="text" value={form.email} onChange={handleEmailChange}/>
+        <label htmlFor="">Password</label>
+        <input type="password" value={form.password} onChange={handlePasswordChange}/>
+        <input type="submit" />
+    </form>
+    </>
+  )
+}
 
-                <input type="submit" value="Register" />
-            </form>
-        </div>
-    );
-};
-
-export default SignUp;
+export default SignUp

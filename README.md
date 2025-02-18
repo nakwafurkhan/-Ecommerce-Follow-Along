@@ -101,6 +101,39 @@ This milestone focuses on fetching product data from the backend and dynamically
 
 This milestone focuses on creating a "My Products" page that displays only the products added by the logged-in user (identified by their email).
 
+
+
+## Milestone 13: Update Functionality
+
+This milestone focuses on implementing the update functionality for product data.  Key achievements include:
+
+    *   Developed a backend endpoint to receive updated product information and persist changes to the MongoDB database.
+    *   Implemented frontend functionality to pre-populate a product edit form with existing data when the "Edit" button is clicked.
+    *   Enabled users to modify the pre-filled data and save the updates, triggering the backend update process.
+
+This milestone demonstrates a solid understanding of update operations in a full-stack context, covering both backend data persistence and user-friendly frontend form handling.
+
+
+
+## Milestone 14: Product Delete Feature
+
+Implemented product deletion: backend endpoint to delete products by ID and frontend "Delete" button functionality.
+
+## Milestone 15: Navbar Component
+    
+Added a reusable navigation bar (Navbar) to all app screens.
+This enables smooth navigation and improves user experience.
+
+## Milestone 16: Product Info Page
+
+Created a page displaying product details, quantity selection, and an "Add to Cart" button.  
+
+
+## Milestone 17: Backend Cart
+
+Implementrd a backend endpoint to add products to the user's cart and store it in the database. 
+
+
 **Key Objectives:**
 
 * Implement a backend endpoint that retrieves products from MongoDB, filtering by the user's email address.
