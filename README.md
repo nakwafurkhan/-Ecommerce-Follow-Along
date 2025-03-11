@@ -119,10 +119,12 @@ This milestone demonstrates a solid understanding of update operations in a full
 
 Implemented product deletion: backend endpoint to delete products by ID and frontend "Delete" button functionality.
 
+
 ## Milestone 15: Navbar Component
     
 Added a reusable navigation bar (Navbar) to all app screens.
 This enables smooth navigation and improves user experience.
+
 
 ## Milestone 16: Product Info Page
 
@@ -132,6 +134,24 @@ Created a page displaying product details, quantity selection, and an "Add to Ca
 ## Milestone 17: Backend Cart
 
 Implementrd a backend endpoint to add products to the user's cart and store it in the database. 
+
+
+## Milestone 18
+
+In this milestone, I implemented the backend functionality for the cart page by adding essential endpoints. Specifically, I created an endpoint for the cart page itself and another endpoint to fetch the products currently stored in the cart for a specific user.
+
+
+## Milestone 19
+
+- Created frontend cart page with product display and +/- quantity adjustment, backed by new backend endpoints for persisting cart quantity changes.
+- Integrated frontend quantity controls with backend API to ensure accurate cart updates and data consistency.
+
+
+## Milestone 20
+
+- Implemented backend endpoint to serve user profile data and created a frontend profile page displaying user info and address (with "Add Address" functionality).
+- Added "No address found" message when no address is available and integrated address management features.
+
 
 
 **Key Objectives:**
